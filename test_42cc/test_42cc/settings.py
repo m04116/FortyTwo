@@ -49,6 +49,8 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+
+    'user_info.middleware.request_recorder.RequestRecorder'
 ]
 
 ROOT_URLCONF = 'test_42cc.urls'
