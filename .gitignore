@@ -13,7 +13,7 @@
 build
 .noseids
 media
-static
+
 *.dat
 .env
 myvenv
