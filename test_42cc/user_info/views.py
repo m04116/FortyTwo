@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from django.http import JsonResponse
 from .models import UserInformation, Request
 
 def info(request):
@@ -19,9 +20,24 @@ def requests(request):
     for req in request_list_all:
         req.is_viewed=True
         req.save()
-    request_list = Request.objects.all()
+    request_list = Request.objects.all()[:10]
     
     context = {'request_list': request_list,
                'new_requests': new_requests_nmb}
 
     return render (request, 'user_info/requests.html', context)
+
+def check_requests(request):
+    if request.method == 'GET':
+        return_dict = dict()
+        request_list_all = Request.objects.all()
+        new_requests_nmb = request_list_all.filter(is_viewed=False).count()
+        print('before if')
+        if new_requests_nmb:
+            return_dict['new_requests_nmb'] = new_requests_nmb
+            print('after if')
+            ret = JsonResponse(return_dict)
+            print(ret.content)
+            print(new_requests_nmb)
+        return JsonResponse(return_dict)
+
