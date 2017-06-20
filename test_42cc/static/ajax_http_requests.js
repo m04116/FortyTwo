@@ -11,7 +11,7 @@ setInterval(function () {
                     
                     $('#new_requests').html('');
                     console.log(data.new_requests_nmb);
-                    $('#new_requests').text(data.new_requests_nmb + "new request(s)")
+                    $('#new_requests').text(data.new_requests_nmb + " new request(s)")
                   }
             });
 }, 3000);

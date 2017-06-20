@@ -13,6 +13,8 @@
       <p>Name: {{ user.name }}</p>
       <p>Last name: {{ user.last_name }}</p>
       <p>Date of birth: {{ user.date_of_birth }}</p>
+      <br>
+      <p>Bio: {{ user.bio }}</p>
     </div>
     
     <div class="col-md-6">
@@ -20,22 +22,9 @@
       <p>Email: {{ user.email }}</p>
       <p>Jabber: {{ user.jabber }}</p>
       <p>Skype: {{ user.skype }}</p>
-    </div>
-  </div>
-
-  <div class="row">
-    
-    <div class="col-md-6" id="photo">
-       <img src="{{ user.photo.url }}" alt="img" class="img-responsive">
-    </div>
-
-    <div class="col-md-6">
       <p>Other contacts: {{ user.other_contacts }}</p>
-      <p>Bio: {{ user.bio }}</p>
     </div>
   </div>
-
-  
 </div>
 
 <div class="request">

@@ -13,6 +13,8 @@
       <p>Name: {{ user.name }}</p>
       <p>Last name: {{ user.last_name }}</p>
       <p>Date of birth: {{ user.date_of_birth }}</p>
+      <br>
+      <p>Bio: {{ user.bio }}</p>
     </div>
     
     <div class="col-md-6">
@@ -20,28 +22,15 @@
       <p>Email: {{ user.email }}</p>
       <p>Jabber: {{ user.jabber }}</p>
       <p>Skype: {{ user.skype }}</p>
-    </div>
-  </div>
-
-  <div class="row">
-    
-    <div class="col-md-6" id="photo">
-       <img src="{{ user.photo.url }}" alt="img" class="img-responsive">
-    </div>
-
-    <div class="col-md-6">
       <p>Other contacts: {{ user.other_contacts }}</p>
-      <p>Bio: {{ user.bio }}</p>
     </div>
   </div>
-
-  
 </div>
 
 <div class="request">
   <a href="{% url 'requests' %}">requests</a>
   {% if new_requests %}
-        <h5 id="new_requests"> {{ new_requests }} new request(s)</h5>
+        <h5> {{ new_requests }} new request{{ new_requests|pluralize }}.</h5>
       {% else %}
         <h5>No new requests.</h5>
       {% endif %}

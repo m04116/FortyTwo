@@ -1,0 +1,23 @@
+{% extends "user_info/base.html" %}
+
+{% block content %}
+    <h3>List of requests</h3>
+    {% if new_requests_nmb %}
+      <h5>{{ new_requests_nmb }} new request{{ new_requests_nmb|pluralize }}.</h5>
+    {% else %}
+      <h5>No new requests.</h5>
+    {% endif %}
+    <ol>
+        {% for request in request_list %}
+        <li>
+            <p>
+                date: {{request.request_date}};
+                scheme:  {{request.scheme}};
+                path: {{request.path}}
+                method: {{request.method}}
+                content_type: {{request.content_type}}
+            </p>
+        </li>
+        {% endfor %}
+    </ol>
+{% endblock %}

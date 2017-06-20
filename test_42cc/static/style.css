@@ -5,3 +5,9 @@ body {
 .request {
     margin-left: 30px;
 }
+
+#photo {
+    background-color: green;
+    min-height: 200px;
+    width: 200px;
+}
