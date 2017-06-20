@@ -30,7 +30,7 @@
 <div class="request">
   <a href="{% url 'requests' %}">requests</a>
   {% if new_requests %}
-        <h5 id="new_requests"> {{ new_requests }} new request{{ new_requests|pluralize }}.</h5>
+        <h5 id="new_requests"> {{ new_requests }} new request(s)</h5>
       {% else %}
         <h5>No new requests.</h5>
       {% endif %}

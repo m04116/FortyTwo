@@ -6,7 +6,7 @@ class RequestRecorder:
         self.get_response = get_response
 
     def __call__(self, request):
-        if request.path.startswith('/admin/'):
+        if request.path.startswith('/admin/') or request.path.startswith('/check_requests'):
             return self.get_response(request)
 
         req = Request(

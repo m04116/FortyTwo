@@ -32,12 +32,8 @@ def check_requests(request):
         return_dict = dict()
         request_list_all = Request.objects.all()
         new_requests_nmb = request_list_all.filter(is_viewed=False).count()
-        print('before if')
         if new_requests_nmb:
             return_dict['new_requests_nmb'] = new_requests_nmb
-            print('after if')
-            ret = JsonResponse(return_dict)
-            print(ret.content)
-            print(new_requests_nmb)
+            
         return JsonResponse(return_dict)
 
