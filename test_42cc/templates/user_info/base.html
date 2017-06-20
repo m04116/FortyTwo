@@ -11,4 +11,10 @@
  {% block content %}{% endblock %}
 
 </body>
+
+{% block add_script %}
+    <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <script src="{% static 'ajax_http_requests.js' %}"></script>
+{% endblock %}
+
 </html>
