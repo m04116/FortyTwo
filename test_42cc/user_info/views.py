@@ -37,3 +37,6 @@ def check_requests(request):
             
         return JsonResponse(return_dict)
 
+def edit_form(request):
+    user = UserInformation.objects.get(id=1)
+    return render (request, 'user_info/user_form.html', {'user': user})

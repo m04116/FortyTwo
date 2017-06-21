@@ -24,9 +24,14 @@
   </div>
 
   <div class="row">
-    
     <div class="col-md-6" id="photo">
-       <img src="{{ user.photo.url }}" alt="img" class="img-responsive">
+    {% if user.photo %}
+    <p>photo</p>
+      {% load thumbnail %}
+        {% thumbnail user.photo "200x200" crop="center" as im %}
+           <img src="{{ im.url }}" alt="" class="img-responsive">
+        {% endthumbnail %}
+    {% endif %}
     </div>
 
     <div class="col-md-6">
