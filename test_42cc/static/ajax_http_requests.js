@@ -1,6 +1,7 @@
 $(document).ready(function(){
 
-setInterval(function () {
+// setInterval(
+    function () {
     $.ajax({
                 url: 'check_requests',
                 type: 'GET',
@@ -14,6 +15,7 @@ setInterval(function () {
                     $('#new_requests').text(data.new_requests_nmb + " new request(s)")
                   }
             });
-}, 3000);
+}, 
+// 15000);
 
 });

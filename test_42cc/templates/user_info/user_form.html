@@ -8,11 +8,12 @@
     </div>
   </div>
 
+  <form>
   <div class="row">
     <div class="col-md-6">
-<form>
+  
       Name: <input type="text" name="name" placeholder="{{ user.name }}">
-</form>
+
       <p>Last name: {{ user.last_name }}</p>
       <p>Date of birth: {{ user.date_of_birth }}</p>
       <br>
@@ -27,15 +28,13 @@
       <p>Other contacts: {{ user.other_contacts }}</p>
     </div>
   </div>
+  </form>
 </div>
+  
 
 <div class="request">
   <a href="{% url 'requests' %}">requests</a>
-  {% if new_requests %}
-        <h5 id="new_requests"> {{ new_requests }} new request(s)</h5>
-      {% else %}
-        <h5>No new requests.</h5>
-      {% endif %}
+  <a href="{% url 'logout' %}">Logout</a>
 </div>
 
 {% endblock %}

@@ -1,8 +1,12 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import JsonResponse
 from .models import UserInformation, Request
 
 def info(request):
+
+    if request.user.is_authenticated():
+                return redirect('edit_form')
+
     user = UserInformation.objects.get(id=1)
     request_list_all = Request.objects.all()
     new_requests_nmb = request_list_all.filter(is_viewed=False)
