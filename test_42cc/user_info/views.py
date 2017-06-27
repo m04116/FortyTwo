@@ -43,4 +43,31 @@ def check_requests(request):
 
 def edit_form(request):
     user = UserInformation.objects.get(id=1)
+    if request.method == 'POST':
+
+        name = request.POST['name']
+        last_name = request.POST['last_name']
+        birth_date = request.POST['birth_date']
+        photo = request.POST['photo']
+        email = request.POST['email']
+        jabber = request.POST['jabber']
+        skype = request.POST['skype']
+        other_contacts = request.POST['other_contacts']
+        bio = request.POST['bio']
+
+        print('start')
+        print(name)
+        print(last_name)
+        print(birth_date)
+        print(photo)
+        print(email)
+        print(jabber)
+        print(skype)
+        print(other_contacts)
+        print(bio)
+        print('request.POST:')
+        print(request.POST)
+        print('end')
+
+
     return render (request, 'user_info/user_form.html', {'user': user})

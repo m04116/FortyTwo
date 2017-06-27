@@ -4,7 +4,7 @@
  <div class="container">
   <div class="row head">
     <div class="col-md-9">
-      <h3>42 Coffee Cups Test Assignment</h3>
+      <h2>42 Coffee Cups Test Assignment</h2>
     </div>
     <div class="col-md-3 text-center login">
       <a href="{% url 'login' %}"" class="">Login</a>
@@ -26,20 +26,25 @@
     </div>
   </div>
 
-  <div class="row">
+  <div class="row info-block">
     <div class="col-md-6" id="photo">
+    <p>Photo:</p>
     {% if user.photo %}
-    <p>photo</p>
       {% load thumbnail %}
         {% thumbnail user.photo "200x200" crop="center" as im %}
            <img src="{{ im.url }}" alt="" class="img-responsive">
-        {% endthumbnail %}
+      {% endthumbnail %}
     {% endif %}
     </div>
 
     <div class="col-md-6">
-      <p>Other contacts: {{ user.other_contacts }}</p>
-      <p>Bio: {{ user.bio }}</p>
+      <div class="other-info">
+        <p>Other contacts:</p>
+        <p>{{ user.other_contacts }}</p>
+      </div>
+      <div class="other-info">
+        <p>Bio: {{ user.bio }}</p>
+      </div>
     </div>
   </div>
 

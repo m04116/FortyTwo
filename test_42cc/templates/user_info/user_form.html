@@ -1,36 +1,114 @@
 {% extends "user_info/base.html" %}
 
 {% block content %}
- <div class="container">
-  <div class="row">
+<div class="container">
+  <div class="row head">
     <div class="col-md-9">
-      <h3>42 Coffee Cups Test Assignment</h3>
+      <h2>42 Coffee Cups Test Assignment</h2>
     </div>
   </div>
 
-  <form>
-  <div class="row">
-    <div class="col-md-6">
-  
-      Name: <input type="text" name="name" placeholder="{{ user.name }}">
+  <form id="edit_form" class="form-horizontal" action="{% url 'edit_form' %}">
+    {% csrf_token %}
+    <div class="row">
+      <div class="col-md-5">
 
-      <p>Last name: {{ user.last_name }}</p>
-      <p>Date of birth: {{ user.date_of_birth }}</p>
-      <br>
-      <p>Bio: {{ user.bio }}</p>
+        <div class="form-group">
+          <label for="name" class="col-md-4 control-label">Name:</label>
+          <div class="col-md-5">
+            <input type="text" name="name" id="name" placeholder="{{ user.name }}">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="last_name" class="col-md-4 control-label">Last Name:</label>
+          <div class="col-md-5">
+            <input type="text" name="last_name" id="last_name" placeholder="{{ user.last_name }}">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="birth_date" class="col-md-4 control-label">Date of birth:</label>
+          <div class="col-md-5">
+            <input type="text" name="last_name" id="birth_date" placeholder="{{ user.date_of_birth }}">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="photo" class="col-md-4 control-label">Photo:</label>
+          <div class="col-md-5">
+            <input type="text" name="photo" id="photo" placeholder="">
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+
+        <div class="form-group">
+          <label for="email" class="col-md-3 control-label">Email:</label>
+          <div class="col-md-5">
+            <input type="text" name="name" id="email" placeholder="{{ user.email }}">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="jabber" class="col-md-3 control-label">Jabber:</label>
+          <div class="col-md-5">
+            <input type="text" name="name" id="jabber" placeholder="{{ user.jabber }}">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="skype" class="col-md-3 control-label">Skype:</label>
+          <div class="col-md-5">
+            <input type="text" name="name" id="skype" placeholder="{{ user.skype }}">
+          </div>
+        </div>
+
+      </div>
     </div>
-    
-    <div class="col-md-6">
-      <p>Contacts</p>
-      <p>Email: {{ user.email }}</p>
-      <p>Jabber: {{ user.jabber }}</p>
-      <p>Skype: {{ user.skype }}</p>
-      <p>Other contacts: {{ user.other_contacts }}</p>
+
+    <div class="row info-block">
+      <div class="col-md-5" id="photo">
+          {% if user.photo %}
+            {% load thumbnail %}
+              {% thumbnail user.photo "200x200" crop="center" as im %}
+                 <img src="{{ im.url }}" alt="" class="img-responsive">
+            {% endthumbnail %}
+          {% endif %}
+      </div>
+
+      <div class="col-md-4">
+        <div class="form-group">
+          <div class="control-label other-contacts">
+            <label class="">Other contacts:</label>
+          </div>
+          <div>
+            <textarea  class="other-info" row="10" cols="40" name="other_contacts" id="other_contacts" placeholder="{{ user.other_contacts }}"></textarea>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <div class="control-label other-contacts">
+            <label class="">Bio:</label>
+          </div>
+          <div>
+            <textarea  class="other-info" row="10" cols="40" name="bio" id="bio" placeholder="{{ user.bio }}"></textarea>
+          </div>
+        </div>
+
+      </div>
     </div>
-  </div>
+
+    <div class="">
+      <button class="btn btn-default btn-lg" type="submit" id="btn_submit">Save</button>
+      <a href="/">Cancel</a>
+    </div>
+
   </form>
 </div>
-  
+
+<hr>
 
 <div class="request">
   <a href="{% url 'requests' %}">requests</a>
